@@ -1,4 +1,4 @@
-﻿namespace CognizantGallery.Model
+﻿namespace CognizantGallery.Data
 {
     public interface ICognizantGallerySettings
     {

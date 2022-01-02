@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CognizantGallery.Data\CognizantGallery.Data.csproj" />
     <ProjectReference Include="..\CognizantGallery.Model\CognizantGallery.Model.csproj" />
   </ItemGroup>
 

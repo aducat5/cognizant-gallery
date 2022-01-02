@@ -1,9 +1,6 @@
 ﻿using CognizantGallery.Model;
 using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CognizantGallery.Data.Product
@@ -16,7 +13,7 @@ namespace CognizantGallery.Data.Product
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
-            var _warehouses = database.GetCollection<Vehicle>(settings.WarehouseCollectionName);
+            _warehouses = database.GetCollection<Warehouse>(settings.WarehouseCollectionName);
         }
         public async Task<List<Warehouse>> GetAllAsync()
         {
