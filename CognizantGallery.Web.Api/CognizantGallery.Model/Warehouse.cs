@@ -1,10 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
+using MongoDB.Driver;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CognizantGallery.Model
 {
@@ -13,8 +10,14 @@ namespace CognizantGallery.Model
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
+
+        [BsonElement("name")]
         public string Name { get; set; }
+
+        [BsonElement("location")]
         public Location Location { get; set; }
-        public List<Car> Cars { get; set; }
+
+        [BsonElement("cars")]
+        public Car Cars { get; set; }
     }
 }

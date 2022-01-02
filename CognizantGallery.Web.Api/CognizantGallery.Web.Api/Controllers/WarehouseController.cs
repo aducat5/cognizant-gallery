@@ -1,17 +1,14 @@
-﻿using CognizantGallery.Data;
-using CognizantGallery.Data.Product;
+﻿using CognizantGallery.Data.Product;
 using CognizantGallery.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CognizantGallery.Web.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("warehouse")]
     public class WarehouseController : ControllerBase
     {
 
@@ -24,7 +21,7 @@ namespace CognizantGallery.Web.Api.Controllers
             _warehouseService = warehouseService;
         }
 
-        [HttpGet]
+        [HttpGet("get-all")]
         public async Task<ActionResult<IEnumerable<Warehouse>>> GetAll()
         {
             try
@@ -32,7 +29,7 @@ namespace CognizantGallery.Web.Api.Controllers
                 var warehouses = await _warehouseService.GetAllAsync();
                 return Ok(warehouses);
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
 
                 throw;
