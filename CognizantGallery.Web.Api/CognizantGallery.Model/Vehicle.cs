@@ -4,7 +4,7 @@ using System;
 
 namespace CognizantGallery.Model
 {
-    public class Vehicle
+    public record Vehicle
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

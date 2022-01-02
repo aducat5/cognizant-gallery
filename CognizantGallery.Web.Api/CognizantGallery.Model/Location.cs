@@ -1,6 +1,8 @@
 ﻿namespace CognizantGallery.Model
 {
-    public class Location
+    public record Location
     {
+        public string Lat { get; set; }
+        public string Long { get; set; }
     }
 }

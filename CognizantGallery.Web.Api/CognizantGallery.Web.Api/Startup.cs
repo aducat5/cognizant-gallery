@@ -1,4 +1,5 @@
 using CognizantGallery.Data;
+using CognizantGallery.Data.Product;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +36,9 @@ namespace CognizantGallery.Web.Api
 
             services.AddSingleton<ICognizantGallerySettings>(sp =>
                 sp.GetRequiredService<IOptions<CognizantGalleryDatabaseSettings>>().Value);
+
+            //adding warehouse service
+            services.AddScoped<WarehouseService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
