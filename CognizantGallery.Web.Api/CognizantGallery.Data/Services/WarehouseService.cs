@@ -16,7 +16,7 @@ namespace CognizantGallery.Data.Product
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
-            var _warehouses = database.GetCollection<Vehicle>(settings.WarehouseCollectionName);
+            _warehouses = database.GetCollection<Warehouse>(settings.WarehouseCollectionName);
         }
         public async Task<List<Warehouse>> GetAllAsync()
         {
