@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CognizantGallery.Model", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CognizantGallery.Data", "CognizantGallery.Data\CognizantGallery.Data.csproj", "{DBCBA4F0-0602-44CA-A495-35C2A3F558AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CognizantGallery.Web.Api.Tests", "CognizantGallery.Web.Api.Tests\CognizantGallery.Web.Api.Tests.csproj", "{9CA70CF7-03F5-4B4C-8E53-8870ABF31F11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CognizantGallery.Web.Api.Tests", "CognizantGallery.Web.Api.Tests\CognizantGallery.Web.Api.Tests.csproj", "{9CA70CF7-03F5-4B4C-8E53-8870ABF31F11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
