@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CognizantGallery.Model
+namespace CognizantGallery.Data
 {
     public class CognizantGalleryDatabaseSettings : ICognizantGallerySettings
     {
