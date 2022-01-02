@@ -24,16 +24,8 @@ namespace CognizantGallery.Web.Api.Controllers
         [HttpGet("get-all")]
         public async Task<ActionResult<IEnumerable<Warehouse>>> GetAll()
         {
-            try
-            {
-                var warehouses = await _warehouseService.GetAllAsync();
-                return Ok(warehouses);
-            }
-            catch (System.Exception ex)
-            {
-
-                throw;
-            }
+            var warehouses = await _warehouseService.GetAllAsync();
+            return Ok(warehouses);
         }
     }
 }
