@@ -1,19 +1,54 @@
-import Link from "react-router-dom";
+import { Children, ReactNode } from "react";
+import { Box, Flex, HStack, Link, useColorModeValue } from "@chakra-ui/react";
 
-export default function NavigationBar(){
-    return (
-        <nav>
-          <ul>
-            <li>
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li>
-              <Link to={"/products"}>Products</Link>
-            </li>
-            <li>
-              <Link to={"/checkout"}>Cart</Link>
-            </li>
-          </ul>
-        </nav>
-    );
+const Links = [
+  {
+    route: "/",
+    text: "Home",
+  },
+  {
+    route: "/cars",
+    text: "Cars",
+  },
+  {
+    route: "/checkout",
+    text: "Checkout",
+  },
+];
+
+const NavLink = ({ children }) => (
+  <Link
+    px={2}
+    py={1}
+    rounded={"md"}
+    _hover={{
+      textDecoration: "none",
+      bg: useColorModeValue("gray.200", "gray.700"),
+    }}
+    href={children.route}
+  >
+    {children.text}
+  </Link>
+);
+
+export default function NavigationBar() {
+  return (
+    <>
+      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+          <HStack spacing={8} alignItems={"center"}>
+            <HStack
+              as={"nav"}
+              spacing={4}
+              display={{ base: "none", md: "flex" }}
+            >
+              {Links.map((link) => (
+                <NavLink key={link}>{link}</NavLink>
+              ))}
+            </HStack>
+          </HStack>
+        </Flex>
+      </Box>
+    </>
+  );
 }
