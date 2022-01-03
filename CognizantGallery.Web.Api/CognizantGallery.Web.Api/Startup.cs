@@ -40,7 +40,16 @@ namespace CognizantGallery.Web.Api
             //adding warehouse service
             services.AddScoped<WarehouseService>();
 
+            //adding controllers
             services.AddControllers();
+
+            //enabling cors for client app
+            services.AddCors(o => o.AddPolicy("LowCorsPolicy", builder => {
+                builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+            }));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CognizantGallery.Web.Api", Version = "v1" });
@@ -60,6 +69,9 @@ namespace CognizantGallery.Web.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            //use the new cors policy
+            app.UseCors("LowCorsPolicy");
 
             app.UseAuthorization();
 
