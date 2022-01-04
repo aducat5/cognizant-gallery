@@ -1,16 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import WarehouseService from "../api/WarehouseService";
 import Warehouse from "../components/Warehouse";
 import { Box } from "@chakra-ui/react";
 
 export default function Cars() {
-  console.log(WarehouseService.getAll());
+  const [warehouseData, setWarehouseData] = useState([]);
+
+  useEffect(() => {
+    WarehouseService.getAll().then(function (result) {
+      setWarehouseData(result);
+    });
+  }, []);
+
   return (
     <Box>
-      <h1>Cars</h1>
+      <h1>Warehouses</h1>
       <hr />
-      {/* <Warehouse data={warehouses[0]}></Warehouse> */}
+      {warehouseData.map((warehouse) => (
+        <Warehouse data={warehouse} key={warehouse.id} />
+      ))}
     </Box>
   );
 }
