@@ -1,16 +1,18 @@
-import { Children, ReactNode } from "react";
 import { Box, Flex, HStack, Link, useColorModeValue } from "@chakra-ui/react";
 
 const Links = [
   {
+    id: 0,
     route: "/",
     text: "Home",
   },
   {
+    id: 1,
     route: "/cars",
     text: "Cars",
   },
   {
+    id: 2,
     route: "/checkout",
     text: "Checkout",
   },
@@ -43,7 +45,7 @@ export default function NavigationBar() {
               display={{ base: "none", md: "flex" }}
             >
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink key={link.id}>{link}</NavLink>
               ))}
             </HStack>
           </HStack>

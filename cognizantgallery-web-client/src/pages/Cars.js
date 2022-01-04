@@ -1,3 +1,35 @@
-export default function Cars(){
-    return (<h1>Cars</h1>);
+import { useEffect, useState } from "react";
+
+import WarehouseService from "../api/WarehouseService";
+import Warehouse from "../components/Warehouse";
+import {
+  Box,
+  Heading,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from "@chakra-ui/react";
+
+export default function Cars() {
+  const [warehouseData, setWarehouseData] = useState([]);
+
+  useEffect(() => {
+    WarehouseService.getAll().then(function (result) {
+      setWarehouseData(result);
+    });
+  }, []);
+
+  return (
+    <div>
+      <Heading>Warehouses</Heading>
+      <hr />
+      <Accordion>
+        {warehouseData.map((warehouse) => (
+          <Warehouse data={warehouse} key={warehouse.id} />
+        ))}
+      </Accordion>
+    </div>
+  );
 }
