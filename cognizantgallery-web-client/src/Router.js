@@ -15,7 +15,7 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="checkout" element={<Checkout />} />
-        <Route path="detail" element={<Details />} />
+        <Route path="detail/:id" element={<Details />} />
         <Route path="cars" element={<Cars />} />
       </Routes>
     </BrowserRouter>

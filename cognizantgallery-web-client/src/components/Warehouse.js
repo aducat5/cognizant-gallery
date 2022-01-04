@@ -13,7 +13,6 @@ import Vehicle from "./Vehicle";
 export default function Warehouse(props) {
   let warehouseData = props.data;
   let vehicles = warehouseData.cars.vehicles || [];
-  console.log(warehouseData.cars);
   return (
     <AccordionItem>
       <h2>
