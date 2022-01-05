@@ -35,7 +35,7 @@ export default function Vehicle(props) {
             colorScheme="teal"
             marginLeft={"5px"}
           >
-            Licensed
+            Licenced
           </Badge>
         )}
       </Box>
