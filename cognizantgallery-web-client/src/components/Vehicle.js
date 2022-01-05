@@ -50,7 +50,7 @@ export default function Vehicle(props) {
 
       {vehicle.isLicenced && (
         <Box display="flex" marginTop={"5px"}>
-          <Link href={`/detail/${vehicle.id}`}>
+          <Link href={`/detail/${props.warehouseId}/${vehicle.id}`}>
             <Button colorScheme="blue" variant="outline" size={"sm"}>
               Go to details
             </Button>

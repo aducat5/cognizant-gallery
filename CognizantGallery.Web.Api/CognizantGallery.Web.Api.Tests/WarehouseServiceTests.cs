@@ -23,5 +23,12 @@ namespace CognizantGallery.Web.Api.Tests
             var warehouses = await _service.GetAllAsync();
             Assert.IsNotNull(warehouses);
         }
+
+        [Test]
+        public void GetVehicleTest()
+        {
+            var vehicle = _service.GetVehicle("1", 16);
+            Assert.AreEqual(vehicle.Id, 16);
+        }
     }
 }

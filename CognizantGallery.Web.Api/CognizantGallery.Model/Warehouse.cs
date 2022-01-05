@@ -8,7 +8,7 @@ namespace CognizantGallery.Model
     public record Warehouse
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
+        //[BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
         [BsonElement("name")]

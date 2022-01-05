@@ -35,7 +35,11 @@ export default function Warehouse(props) {
         <hr />
         <SimpleGrid columns={4} spacing={10} p={8}>
           {vehicles.map((vehicle) => (
-            <Vehicle key={vehicle.id} data={vehicle}></Vehicle>
+            <Vehicle
+              key={vehicle.id}
+              data={vehicle}
+              warehouseId={warehouseData.id}
+            ></Vehicle>
           ))}
         </SimpleGrid>
       </AccordionPanel>
