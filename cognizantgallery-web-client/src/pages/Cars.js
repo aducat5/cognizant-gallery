@@ -2,15 +2,7 @@ import { useEffect, useState } from "react";
 
 import WarehouseService from "../api/WarehouseService";
 import Warehouse from "../components/Warehouse";
-import {
-  Box,
-  Heading,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-} from "@chakra-ui/react";
+import { Heading, Accordion } from "@chakra-ui/react";
 
 export default function Cars() {
   const [warehouseData, setWarehouseData] = useState([]);

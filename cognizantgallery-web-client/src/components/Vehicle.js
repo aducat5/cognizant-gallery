@@ -3,6 +3,7 @@ import { Box, Image, Badge, Button, Link } from "@chakra-ui/react";
 export default function Vehicle(props) {
   let vehicle = props.data || {};
   let placeholderImage = require("../images/no-image.png");
+  console.log(props);
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" p="4">
       <Image src={placeholderImage} />
@@ -49,7 +50,7 @@ export default function Vehicle(props) {
 
       {vehicle.isLicenced && (
         <Box display="flex" marginTop={"5px"}>
-          <Link href="/details">
+          <Link href={`/detail/${props.warehouseId}/${vehicle.id}`}>
             <Button colorScheme="blue" variant="outline" size={"sm"}>
               Go to details
             </Button>
