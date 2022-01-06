@@ -1,11 +1,14 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/cart-context";
 import PurchaseService from "../api/PurchaseService";
 
 import { Box, Center, Flex, Text, Button, Image } from "@chakra-ui/react";
+import { DeleteIcon } from "@chakra-ui/icons";
 
 const Checkout = () => {
   const [cart, setCart] = useContext(CartContext);
+  let navigate = useNavigate();
   let placeholderImage = require("../images/no-image.png");
   let totalPrice = 0;
   cart.length > 0 &&
@@ -18,12 +21,27 @@ const Checkout = () => {
     //if purchase successful clear cart
     PurchaseService.checkout(cart).then((result) => {
       const { data } = result;
-      if (data.isSuccessful) clearCart();
+      if (data.isSuccessful) {
+        clearCart();
+        navigate("../success", { replace: true });
+      }
     });
   };
 
   const clearCart = () => {
     setCart([]);
+  };
+
+  const removeFromCart = (warehouseId, vehicleId) => {
+    for (let i = 0; i < cart.length; i++) {
+      const item = cart[i];
+      if (item.warehouseId == warehouseId && item.id == vehicleId) {
+        console.log("found", item);
+        const newCart = cart.filter((element) => element != item);
+        setCart(newCart);
+        return;
+      }
+    }
   };
 
   return (
@@ -36,6 +54,7 @@ const Checkout = () => {
                 key={item.id}
                 data={item}
                 image={placeholderImage}
+                removeHandler={removeFromCart}
               />
             ))}
           </Flex>
@@ -77,6 +96,7 @@ const SummaryItem = (props) => {
 const CartListItem = (props) => {
   const { data } = props;
   const { image } = props;
+  const { removeHandler } = props;
   return (
     <Box p="10px" my="22px" borderRadius="12px" key={data.id} borderWidth="1px">
       <Flex justify="space-between" w="100%">
@@ -110,12 +130,12 @@ const CartListItem = (props) => {
             bg="transparent"
             mb={{ sm: "10px", md: "0px" }}
             me={{ md: "12px" }}
+            onClick={() => {
+              removeHandler(data.warehouseId, data.id);
+            }}
           >
             <Flex color="red.500" cursor="pointer" align="center" p="12px">
-              {/* <Icon as={FaTrashAlt} me="4px" /> */}
-              <Text fontSize="sm" fontWeight="semibold">
-                DELETE
-              </Text>
+              <DeleteIcon></DeleteIcon>
             </Flex>
           </Button>
         </Flex>
