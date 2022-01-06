@@ -35,22 +35,16 @@ const NavLink = ({ children }) => (
 
 export default function NavigationBar() {
   return (
-    <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <HStack spacing={8} alignItems={"center"}>
-            <HStack
-              as={"nav"}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-            >
-              {Links.map((link) => (
-                <NavLink key={link.id}>{link}</NavLink>
-              ))}
-            </HStack>
+    <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+        <HStack spacing={8} alignItems={"center"}>
+          <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
+            {Links.map((link) => (
+              <NavLink key={link.id}>{link}</NavLink>
+            ))}
           </HStack>
-        </Flex>
-      </Box>
-    </>
+        </HStack>
+      </Flex>
+    </Box>
   );
 }

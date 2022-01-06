@@ -29,7 +29,6 @@ export default function Details() {
   useEffect(() => {
     VehicleService.getVehicle(warehouseId, vehicleId).then(function (response) {
       setVehicleData(response.result);
-      console.log(response.result);
     });
   }, []);
 
