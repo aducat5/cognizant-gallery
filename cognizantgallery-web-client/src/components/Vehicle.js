@@ -1,3 +1,4 @@
+import { Link as RouterLink } from "react-router-dom";
 import { Box, Image, Badge, Button, Link } from "@chakra-ui/react";
 
 const Vehicle = (props) => {
@@ -50,7 +51,10 @@ const Vehicle = (props) => {
 
       {vehicle.isLicenced && (
         <Box display="flex" marginTop={"5px"}>
-          <Link href={`/detail/${props.warehouseId}/${vehicle.id}`}>
+          <Link
+            as={RouterLink}
+            to={`/detail/${props.warehouseId}/${vehicle.id}`}
+          >
             <Button colorScheme="blue" variant="outline" size={"sm"}>
               Go to details
             </Button>

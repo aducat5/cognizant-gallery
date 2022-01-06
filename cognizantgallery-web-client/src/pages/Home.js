@@ -1,3 +1,4 @@
+import { Link as RouterLink } from "react-router-dom";
 import {
   Box,
   Container,
@@ -47,7 +48,9 @@ const Home = () => {
               bg: "green.500",
             }}
           >
-            <Link href="/cars">To The Cars!</Link>
+            <Link as={RouterLink} to="/cars">
+              To The Cars!
+            </Link>
           </Button>
         </Stack>
       </Stack>

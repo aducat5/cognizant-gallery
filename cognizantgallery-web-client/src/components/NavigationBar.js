@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../context/cart-context";
+//Router link has to be imported and passed to the chakra link
+import { Link as RouterLink } from "react-router-dom";
 import { Box, Flex, HStack, Link, useColorModeValue } from "@chakra-ui/react";
 
 const Links = [
@@ -22,6 +24,7 @@ const Links = [
 
 const NavLink = ({ children }) => (
   <Link
+    as={RouterLink}
     px={2}
     py={1}
     rounded={"md"}
@@ -29,7 +32,7 @@ const NavLink = ({ children }) => (
       textDecoration: "none",
       bg: useColorModeValue("gray.200", "gray.700"),
     }}
-    href={children.route}
+    to={children.route}
   >
     {children.text}
   </Link>

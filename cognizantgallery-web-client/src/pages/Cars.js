@@ -2,20 +2,21 @@ import { useEffect, useState } from "react";
 
 import WarehouseService from "../api/WarehouseService";
 import Warehouse from "../components/Warehouse";
-import { Heading, Accordion } from "@chakra-ui/react";
+import { Text, Accordion } from "@chakra-ui/react";
 
 const Cars = () => {
   const [warehouseData, setWarehouseData] = useState([]);
 
   useEffect(() => {
     WarehouseService.getAll().then(function (result) {
-      setWarehouseData(result);
+      const { data } = result;
+      setWarehouseData(data);
     });
   }, []);
 
   return (
     <div>
-      <Heading>Warehouses</Heading>
+      <Text fontSize={"4xl"}>Warehouses</Text>
       <hr />
       <Accordion>
         {warehouseData.length > 0 &&
