@@ -46,19 +46,8 @@ const Checkout = () => {
               text={"lorem ipsum dolor sit amet"}
             />
             <SummaryItem title={"Payment:"} text={"(VISA) TR993xxxxxxxxxxxx"} />
-            <Button
-              colorScheme={"green"}
-              bg={"green.400"}
-              rounded={"full"}
-              px={6}
-              _hover={{
-                bg: "green.500",
-              }}
-              marginTop={"10px"}
-              onClick={checkout}
-            >
-              Checkout
-            </Button>
+            <RoundedButton text={"Checkout"} onClick={checkout} color="green" />
+            <RoundedButton text={"Clear"} onClick={clearCart} color="red" />
           </Flex>
         </Flex>
       )}
@@ -132,6 +121,25 @@ const CartListItem = (props) => {
         </Flex>
       </Flex>
     </Box>
+  );
+};
+
+const RoundedButton = (props) => {
+  const color = props.color || "white";
+  return (
+    <Button
+      colorScheme={"green"}
+      bg={color + ".400"}
+      rounded={"full"}
+      px={6}
+      _hover={{
+        bg: color + ".500",
+      }}
+      marginTop={"10px"}
+      onClick={props.onClick}
+    >
+      {props.text}
+    </Button>
   );
 };
 

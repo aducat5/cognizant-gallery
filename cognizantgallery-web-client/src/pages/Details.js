@@ -31,7 +31,7 @@ const Details = () => {
   useEffect(() => {
     VehicleService.getVehicle(warehouseId, vehicleId).then((response) => {
       const { data } = response;
-      setVehicleData(response.result);
+      setVehicleData(data.result);
     });
   }, []);
 
