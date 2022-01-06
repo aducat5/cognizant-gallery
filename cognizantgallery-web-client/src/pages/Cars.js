@@ -4,7 +4,7 @@ import WarehouseService from "../api/WarehouseService";
 import Warehouse from "../components/Warehouse";
 import { Heading, Accordion } from "@chakra-ui/react";
 
-export default function Cars() {
+const Cars = () => {
   const [warehouseData, setWarehouseData] = useState([]);
 
   useEffect(() => {
@@ -18,10 +18,13 @@ export default function Cars() {
       <Heading>Warehouses</Heading>
       <hr />
       <Accordion>
-        {warehouseData.map((warehouse) => (
-          <Warehouse data={warehouse} key={warehouse.id} />
-        ))}
+        {warehouseData.length > 0 &&
+          warehouseData.map((warehouse) => (
+            <Warehouse data={warehouse} key={warehouse.id} />
+          ))}
       </Accordion>
     </div>
   );
-}
+};
+
+export default Cars;

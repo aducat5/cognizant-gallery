@@ -8,7 +8,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 
-export default function Home() {
+const Home = () => {
   return (
     <Container maxW={"3xl"}>
       <Stack
@@ -53,4 +53,6 @@ export default function Home() {
       </Stack>
     </Container>
   );
-}
+};
+
+export default Home;
