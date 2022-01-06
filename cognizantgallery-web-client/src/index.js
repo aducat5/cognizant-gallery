@@ -5,15 +5,11 @@ import App from "./App";
 
 //some modern styling
 import { ChakraProvider } from "@chakra-ui/react";
-//context includes
-import { CartProvider } from "./context/cart-context";
 
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
-      <CartProvider>
-        <App />
-      </CartProvider>
+      <App />
     </ChakraProvider>
   </React.StrictMode>,
   document.getElementById("root")

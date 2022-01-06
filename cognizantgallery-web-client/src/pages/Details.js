@@ -22,10 +22,10 @@ import {
 } from "@chakra-ui/react";
 
 const Details = () => {
-  const [cart, setCart] = useContext(CartContext);
   const { warehouseId } = useParams();
   const { vehicleId } = useParams();
   const [vehicleData, setVehicleData] = useState({});
+  const [cart, setCart] = useContext(CartContext);
   let placeholderImage = require("../images/no-image.png");
 
   useEffect(() => {
