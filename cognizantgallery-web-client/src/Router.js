@@ -8,7 +8,7 @@ import Cars from "./pages/Cars";
 import Home from "./pages/Home";
 import NavigationBar from "./components/NavigationBar";
 
-export default function Router() {
+const Router = () => {
   return (
     <BrowserRouter>
       <NavigationBar />
@@ -20,4 +20,6 @@ export default function Router() {
       </Routes>
     </BrowserRouter>
   );
-}
+};
+
+export default Router;

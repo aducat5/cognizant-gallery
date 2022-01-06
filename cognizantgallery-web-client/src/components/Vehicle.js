@@ -1,9 +1,9 @@
 import { Box, Image, Badge, Button, Link } from "@chakra-ui/react";
 
-export default function Vehicle(props) {
+const Vehicle = (props) => {
   let vehicle = props.data || {};
   let placeholderImage = require("../images/no-image.png");
-  console.log(props);
+
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" p="4">
       <Image src={placeholderImage} />
@@ -59,4 +59,6 @@ export default function Vehicle(props) {
       )}
     </Box>
   );
-}
+};
+
+export default Vehicle;

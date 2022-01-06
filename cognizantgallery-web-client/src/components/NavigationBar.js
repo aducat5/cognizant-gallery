@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { CartContext } from "../context/cart-context";
 import { Box, Flex, HStack, Link, useColorModeValue } from "@chakra-ui/react";
 
 const Links = [
@@ -33,24 +35,23 @@ const NavLink = ({ children }) => (
   </Link>
 );
 
-export default function NavigationBar() {
+const NavigationBar = () => {
+  const [cart, setCart] = useContext(CartContext);
+
   return (
-    <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <HStack spacing={8} alignItems={"center"}>
-            <HStack
-              as={"nav"}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-            >
-              {Links.map((link) => (
-                <NavLink key={link.id}>{link}</NavLink>
-              ))}
-            </HStack>
+    <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+        <HStack spacing={8} alignItems={"center"}>
+          <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
+            {Links.map((link) => (
+              <NavLink key={link.id}>{link}</NavLink>
+            ))}
           </HStack>
-        </Flex>
-      </Box>
-    </>
+        </HStack>
+        <Link>Cart ({cart.length})</Link>
+      </Flex>
+    </Box>
   );
-}
+};
+
+export default NavigationBar;

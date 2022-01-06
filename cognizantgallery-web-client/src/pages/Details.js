@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CartContext } from "../context/cart-context";
 import { useParams } from "react-router-dom";
 import VehicleService from "../api/VehicleService";
 
@@ -20,7 +21,8 @@ import {
   Badge,
 } from "@chakra-ui/react";
 
-export default function Details() {
+const Details = () => {
+  const [cart, setCart] = useContext(CartContext);
   const { warehouseId } = useParams();
   const { vehicleId } = useParams();
   const [vehicleData, setVehicleData] = useState({});
@@ -29,9 +31,13 @@ export default function Details() {
   useEffect(() => {
     VehicleService.getVehicle(warehouseId, vehicleId).then(function (response) {
       setVehicleData(response.result);
-      console.log(response.result);
     });
   }, []);
+
+  const addToCart = (item) => {
+    item.warehouseId = warehouseId;
+    setCart([...cart, item]);
+  };
 
   return (
     <Container maxW={"7xl"}>
@@ -142,6 +148,9 @@ export default function Details() {
               transform: "translateY(2px)",
               boxShadow: "lg",
             }}
+            onClick={() => {
+              addToCart(vehicleData);
+            }}
           >
             Add to cart
           </Button>
@@ -149,4 +158,6 @@ export default function Details() {
       </SimpleGrid>
     </Container>
   );
-}
+};
+
+export default Details;
