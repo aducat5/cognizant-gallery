@@ -8,7 +8,7 @@ const getVehicle = async (warehouseId, vehicleId) => {
   let response = await axios.get(
     `${BASE_URL}/${CONTROLLER}/get-vehicle?warehouseId=${warehouseId}&vehicleId=${vehicleId}`
   );
-  return response.data;
+  return response;
 };
 
 export default {

@@ -29,7 +29,8 @@ const Details = () => {
   let placeholderImage = require("../images/no-image.png");
 
   useEffect(() => {
-    VehicleService.getVehicle(warehouseId, vehicleId).then(function (response) {
+    VehicleService.getVehicle(warehouseId, vehicleId).then((response) => {
+      const { data } = response;
       setVehicleData(response.result);
     });
   }, []);
