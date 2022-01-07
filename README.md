@@ -14,11 +14,11 @@ This app contains three main parts;
 
 # To run the Backend .NET Core API Project,
   
-  # if you have visual studio  
+  ## If you have visual studio  
   - find and open the solution(.sln file) in *CognizantGallery.Web.Api* folder folder
   - hit f5 to run the project
 
-  # if you want to use terminal
+  ## If you want to use terminal
   - open a terminal
   - cd *CognizantGallery.Web.Api*
   - dotnet publish
