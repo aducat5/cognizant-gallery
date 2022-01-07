@@ -29,7 +29,7 @@ This app contains three main parts;
  - cd *cognizantgallery-web-client*
  - npm start
 
-# If you want to self-host the DB,
+## If you want to self-host the DB,
  - dummy data that i used is located in *sampleData* folder.
  - just import the .json file to a mongoDB
  - update the connection string located in *CognizantGallery.Web.Api\appsettings.json* 
