@@ -1,4 +1,4 @@
-.# Welcome to the test-case for Cognizant!
+# Welcome to the test-case for Cognizant!
 
 This app contains three main parts;
 - Backend .NET Core API Project is located in *CognizantGallery.Web.Api* folder.
