@@ -13,7 +13,6 @@ namespace CognizantGallery.Web.Api.Controllers
     {
 
         private readonly ILogger<PurchaseController> _logger;
-        private readonly WarehouseService _warehouseService;
 
         public PurchaseController(ILogger<PurchaseController> logger)
         {

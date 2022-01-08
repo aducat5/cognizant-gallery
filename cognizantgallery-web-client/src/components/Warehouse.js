@@ -1,3 +1,7 @@
+//react imports
+import React from "react";
+
+//3rd party imports
 import {
   Box,
   Text,
@@ -11,15 +15,15 @@ import {
 import Vehicle from "./Vehicle";
 
 const Warehouse = (props) => {
-  let warehouseData = props.data;
-  let vehicles = warehouseData.cars.vehicles || [];
+  const { data } = props;
+  const vehicles = data.cars.vehicles || [];
   return (
     <AccordionItem>
       <h2>
         <AccordionButton>
           <Box flex="1" textAlign="left">
             <Text align={"left"} fontSize="2xl">
-              {warehouseData.name}
+              {data.name}
             </Text>
           </Box>
           <AccordionIcon />
@@ -27,18 +31,18 @@ const Warehouse = (props) => {
       </h2>
       <AccordionPanel pb={4}>
         <Text align={"left"} fontSize={"1x1"}>
-          Location: {warehouseData.cars.location}
+          Location: {data.cars.location}
         </Text>
         <Text
           align={"right"}
-        >{`lat: ${warehouseData.location.lat} | long: ${warehouseData.location.long}`}</Text>
+        >{`lat: ${data.location.lat} | long: ${data.location.long}`}</Text>
         <hr />
         <SimpleGrid columns={4} spacing={10} p={8}>
           {vehicles.map((vehicle) => (
             <Vehicle
               key={vehicle.id}
               data={vehicle}
-              warehouseId={warehouseData.id}
+              warehouseId={data.id}
             ></Vehicle>
           ))}
         </SimpleGrid>

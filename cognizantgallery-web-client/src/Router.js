@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-//Custom imports
+//in-project imports
 import Checkout from "./pages/Checkout";
 import Details from "./pages/Details";
 import Cars from "./pages/Cars";
 import Home from "./pages/Home";
 import Success from "./pages/Success";
 import NavigationBar from "./components/NavigationBar";
-import { CartProvider } from "./context/cart-context";
+import { CartProvider } from "./context/CartContext";
 
 const Router = () => {
   return (

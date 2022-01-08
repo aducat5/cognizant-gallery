@@ -1,8 +1,8 @@
+//raect imports
 import { useState, useEffect, useContext } from "react";
-import { CartContext } from "../context/cart-context";
-import { useParams } from "react-router-dom";
-import VehicleService from "../api/VehicleService";
 
+//3rd party imports
+import { useParams, Link as RouterLink } from "react-router-dom";
 import {
   Box,
   Container,
@@ -19,7 +19,14 @@ import {
   List,
   ListItem,
   Badge,
+  Link,
+  SkeletonText,
 } from "@chakra-ui/react";
+import { ChevronLeftIcon } from "@chakra-ui/icons";
+
+//in-project imports
+import { CartContext } from "../context/CartContext";
+import VehicleService from "../api/VehicleService";
 
 const Details = () => {
   const { warehouseId } = useParams();
@@ -42,6 +49,11 @@ const Details = () => {
 
   return (
     <Container maxW={"7xl"}>
+      <Button marginLeft={"-120%"} marginTop={"2%"}>
+        <Link as={RouterLink} to={"/cars"}>
+          <ChevronLeftIcon /> Back
+        </Link>
+      </Button>
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         spacing={{ base: 8, md: 10 }}
@@ -65,14 +77,18 @@ const Details = () => {
               fontWeight={600}
               fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
             >
-              {vehicleData.make} - {vehicleData.model}
+              {vehicleData.make || <SkeletonText noOfLines={2} />} -{" "}
+              {vehicleData.model || <SkeletonText noOfLines={2} />}
             </Heading>
             <Text
               color={useColorModeValue("gray.900", "gray.400")}
               fontWeight={300}
               fontSize={"2xl"}
             >
-              ${vehicleData.price}
+              $
+              {vehicleData.price || (
+                <SkeletonText noOfLines={1} maxW={"50px"} />
+              )}
             </Text>
           </Box>
 
