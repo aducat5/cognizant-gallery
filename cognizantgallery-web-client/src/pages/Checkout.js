@@ -8,6 +8,7 @@ import { Center, Flex } from "@chakra-ui/react";
 //in-project imports
 import { CartContext } from "../context/CartContext";
 import PurchaseService from "../api/PurchaseService";
+import EmptyView from "../components/EmptyView";
 import {
   SummaryItem,
   CartListItem,
@@ -39,43 +40,58 @@ const Checkout = () => {
   const removeFromCart = (warehouseId, vehicleId) => {
     for (let i = 0; i < cart.length; i++) {
       const item = cart[i];
-      if (item.warehouseId == warehouseId && item.id == vehicleId) {
-        console.log("found", item);
-        const newCart = cart.filter((element) => element != item);
+      if (item.warehouseId === warehouseId && item.id === vehicleId) {
+        const newCart = cart.filter((element) => element !== item);
         setCart(newCart);
         return;
       }
     }
   };
 
-  return (
-    <Center>
-      {cart.length > 0 && (
-        <Flex direction="row">
-          <Flex direction="column" textAlign={"left"}>
-            {cart.map((item) => (
-              <CartListItem
-                key={item.id}
-                data={item}
-                image={placeholderImage}
-                removeHandler={removeFromCart}
+  if (cart.length > 0) {
+    return (
+      <Center>
+        {cart.length > 0 && (
+          <Flex direction="row">
+            <Flex direction="column" textAlign={"left"}>
+              {cart.map((item) => (
+                <CartListItem
+                  key={item.id}
+                  data={item}
+                  image={placeholderImage}
+                  removeHandler={removeFromCart}
+                />
+              ))}
+            </Flex>
+            <Flex direction="column" marginLeft="250px" textAlign="left">
+              <SummaryItem title={"Total Price:"} text={"$" + totalPrice} />
+              <SummaryItem
+                title={"Adress:"}
+                text={"lorem ipsum dolor sit amet"}
               />
-            ))}
+              <SummaryItem
+                title={"Payment:"}
+                text={"(VISA) TR993xxxxxxxxxxxx"}
+              />
+              <RoundedButton
+                text={"Checkout"}
+                onClick={checkout}
+                color="green"
+              />
+              <RoundedButton text={"Clear"} onClick={clearCart} color="red" />
+            </Flex>
           </Flex>
-          <Flex direction="column" marginLeft="250px" textAlign="left">
-            <SummaryItem title={"Total Price:"} text={"$" + totalPrice} />
-            <SummaryItem
-              title={"Adress:"}
-              text={"lorem ipsum dolor sit amet"}
-            />
-            <SummaryItem title={"Payment:"} text={"(VISA) TR993xxxxxxxxxxxx"} />
-            <RoundedButton text={"Checkout"} onClick={checkout} color="green" />
-            <RoundedButton text={"Clear"} onClick={clearCart} color="red" />
-          </Flex>
-        </Flex>
-      )}
-    </Center>
-  );
+        )}
+      </Center>
+    );
+  } else {
+    return (
+      <EmptyView
+        title="There is nothing to see here!"
+        text="Your cart is empty therefore there is nothing to checkout. Please add something to your car and comeback later."
+      />
+    );
+  }
 };
 
 export default Checkout;
