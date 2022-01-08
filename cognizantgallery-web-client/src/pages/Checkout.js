@@ -19,7 +19,7 @@ const Checkout = () => {
   const navigate = useNavigate();
   const placeholderImage = require("../images/no-image.png");
 
-  totalPrice = 0;
+  let totalPrice = 0;
   cart.length > 0 &&
     cart.forEach((item) => {
       totalPrice += item.price;

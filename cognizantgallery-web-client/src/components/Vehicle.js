@@ -7,7 +7,7 @@ import { Box, Image, Badge, Button, Link } from "@chakra-ui/react";
 
 const Vehicle = (props) => {
   const { data } = props || {};
-  let placeholderImage = require("../images/no-image.png");
+  const placeholderImage = require("../images/no-image.png");
 
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" p="4">
@@ -55,10 +55,7 @@ const Vehicle = (props) => {
 
       {data.isLicenced && (
         <Box display="flex" marginTop={"5px"}>
-          <Link
-            as={RouterLink}
-            to={`/detail/${props.warehouseId}/${vehicle.id}`}
-          >
+          <Link as={RouterLink} to={`/detail/${props.warehouseId}/${data.id}`}>
             <Button colorScheme="blue" variant="outline" size={"sm"}>
               Go to details
             </Button>

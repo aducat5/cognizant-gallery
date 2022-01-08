@@ -42,7 +42,7 @@ const Warehouse = (props) => {
             <Vehicle
               key={vehicle.id}
               data={vehicle}
-              warehouseId={warehouseData.id}
+              warehouseId={data.id}
             ></Vehicle>
           ))}
         </SimpleGrid>
