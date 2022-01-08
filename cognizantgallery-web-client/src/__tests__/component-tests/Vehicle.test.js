@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Vehicle from "../../components/EmptyView";
 
-it("renders correctly", () => {
+it.skip("renders correctly", () => {
   const sampleWarehouseId = "1";
   const sampleVehicle = {
     id: 1,

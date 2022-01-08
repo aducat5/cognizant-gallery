@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Warehouse from "../../components/Warehouse";
 
-it("renders correctly", () => {
+it.skip("renders correctly", () => {
   const sampleWarehouse = {
     id: "1",
     name: "Warehouse A",
