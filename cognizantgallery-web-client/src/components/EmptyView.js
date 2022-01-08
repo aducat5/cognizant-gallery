@@ -28,7 +28,7 @@ const EmptyView = (props) => (
           bg: "green.500",
         }}
       >
-        <Link as={RouterLink} to="/home">
+        <Link as={RouterLink} to="/">
           To Home!
         </Link>
       </Button>
