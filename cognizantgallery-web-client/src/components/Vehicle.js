@@ -6,7 +6,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { Box, Image, Badge, Button, Link } from "@chakra-ui/react";
 
 const Vehicle = (props) => {
-  let vehicle = props.data || {};
+  const { data } = props || {};
   let placeholderImage = require("../images/no-image.png");
 
   return (
@@ -21,7 +21,7 @@ const Vehicle = (props) => {
           lineHeight="tight"
           isTruncated
         >
-          {vehicle.make} - {vehicle.model}
+          {data.make} - {data.model}
         </Box>
         <Box
           color="gray.500"
@@ -31,9 +31,9 @@ const Vehicle = (props) => {
           textTransform="uppercase"
           ml="2"
         >
-          {vehicle.yearModel}
+          {data.yearModel}
         </Box>
-        {vehicle.isLicenced && (
+        {data.isLicenced && (
           <Badge
             borderRadius="full"
             px="2"
@@ -46,14 +46,14 @@ const Vehicle = (props) => {
       </Box>
 
       <Box display={"flex"} mt="2">
-        {vehicle.price} €
+        {data.price} €
       </Box>
 
       <Box display={"flex"} mt="2">
-        {vehicle.createdAt}
+        {data.createdAt}
       </Box>
 
-      {vehicle.isLicenced && (
+      {data.isLicenced && (
         <Box display="flex" marginTop={"5px"}>
           <Link
             as={RouterLink}
