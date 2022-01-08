@@ -1,8 +1,8 @@
+//raect imports
 import { useState, useEffect, useContext } from "react";
-import { CartContext } from "../context/cart-context";
-import { useParams } from "react-router-dom";
-import VehicleService from "../api/VehicleService";
 
+//3rd party imports
+import { useParams } from "react-router-dom";
 import {
   Box,
   Container,
@@ -20,6 +20,10 @@ import {
   ListItem,
   Badge,
 } from "@chakra-ui/react";
+
+//in-project imports
+import { CartContext } from "../context/CartContext";
+import VehicleService from "../api/VehicleService";
 
 const Details = () => {
   const { warehouseId } = useParams();

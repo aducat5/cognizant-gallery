@@ -1,10 +1,14 @@
+//react imports
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { CartContext } from "../context/cart-context";
-import PurchaseService from "../api/PurchaseService";
 
+//3rd party imports
+import { useNavigate } from "react-router-dom";
 import { Box, Center, Flex, Text, Button, Image } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
+
+//in-project imports
+import { CartContext } from "../context/CartContext";
+import PurchaseService from "../api/PurchaseService";
 
 const Checkout = () => {
   const [cart, setCart] = useContext(CartContext);

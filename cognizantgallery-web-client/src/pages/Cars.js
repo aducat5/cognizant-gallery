@@ -1,8 +1,12 @@
+//react imports
 import { useEffect, useState } from "react";
 
+//3rd party imports
+import { Text, Accordion } from "@chakra-ui/react";
+
+//in-project imports
 import WarehouseService from "../api/WarehouseService";
 import Warehouse from "../components/Warehouse";
-import { Text, Accordion } from "@chakra-ui/react";
 
 const Cars = () => {
   const [warehouseData, setWarehouseData] = useState([]);

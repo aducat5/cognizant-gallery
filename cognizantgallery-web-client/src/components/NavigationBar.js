@@ -1,8 +1,12 @@
+//react imports
 import { useContext } from "react";
-import { CartContext } from "../context/cart-context";
-//Router link has to be imported and passed to the chakra link
+
+//3rd party imports
 import { Link as RouterLink } from "react-router-dom";
 import { Box, Flex, HStack, Link, useColorModeValue } from "@chakra-ui/react";
+
+//in-project imports
+import { CartContext } from "../context/CartContext";
 
 const Links = [
   {

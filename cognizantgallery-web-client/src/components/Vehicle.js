@@ -1,4 +1,7 @@
+//react imports
 import React from "react";
+
+//3rd party imports
 import { Link as RouterLink } from "react-router-dom";
 import { Box, Image, Badge, Button, Link } from "@chakra-ui/react";
 
