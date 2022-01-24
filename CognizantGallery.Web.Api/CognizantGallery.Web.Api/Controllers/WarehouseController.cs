@@ -13,13 +13,11 @@ namespace CognizantGallery.Web.Api.Controllers
     public class WarehouseController : ControllerBase
     {
 
-        private readonly ILogger<WarehouseController> _logger;
         private readonly WarehouseService _warehouseService;
         private IRequestHandler _requestHandler;
 
-        public WarehouseController(ILogger<WarehouseController> logger, WarehouseService warehouseService, IRequestHandler requestHandler)
+        public WarehouseController(WarehouseService warehouseService, IRequestHandler requestHandler)
         {
-            _logger = logger;
             _warehouseService = warehouseService;
             _requestHandler = requestHandler;
         }
