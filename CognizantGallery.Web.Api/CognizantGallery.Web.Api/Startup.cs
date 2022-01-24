@@ -1,5 +1,6 @@
 using CognizantGallery.Data;
 using CognizantGallery.Data.Product;
+using CognizantGallery.Web.Api.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +37,8 @@ namespace CognizantGallery.Web.Api
 
             services.AddSingleton<ICognizantGallerySettings>(sp =>
                 sp.GetRequiredService<IOptions<CognizantGalleryDatabaseSettings>>().Value);
+
+            services.AddSingleton<IRequestHandler, RequestHandler>();
 
             //adding warehouse service
             services.AddScoped<WarehouseService>();
@@ -75,10 +78,21 @@ namespace CognizantGallery.Web.Api
 
             app.UseAuthorization();
 
+            app.UseRequestHandlerMiddleware();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            
+
+            //app.Use(async (context, next) =>
+            //{
+
+            //    // Call the next delegate/middleware in the pipeline
+            //    await next();
+            //});
         }
     }
 }
