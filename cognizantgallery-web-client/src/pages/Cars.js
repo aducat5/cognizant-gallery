@@ -10,12 +10,14 @@ import Warehouse from "../components/Warehouse";
 
 const Cars = () => {
   const [warehouseData, setWarehouseData] = useState([]);
+  const [requestCount, setRequestCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     WarehouseService.getAll().then(function (result) {
       const { data } = result;
-      setWarehouseData(data);
+      setWarehouseData(data.data);
+      setRequestCount(data.requestCount);
       setIsLoading(false);
     });
   }, []);
@@ -36,6 +38,9 @@ const Cars = () => {
       <Box px={"5%"} paddingTop={"1%"}>
         <Text fontSize={"4xl"} marginBottom={"15px"}>
           Warehouses
+        </Text>
+        <Text fontSize={"4xl"} marginBottom={"15px"}>
+          Current Request Count : {requestCount}
         </Text>
         <hr />
         <Accordion>
